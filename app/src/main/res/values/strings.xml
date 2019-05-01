@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Save Me !</string>
+
+    <string name="jenis_prompt">Jenis Bencana</string>
+    <string-array name="jenis_arrays">
+        <item>Alam</item>
+        <item>Buatan</item>
+    </string-array>
+
+    <string name="bencana_alam_prompt">Tipe Bencana Alam</string>
+    <string-array name="bencana_alam_arrays">
+        <item>Gempa Bumi</item>
+        <item>Tanah Longsor</item>
+        <item>Gunung Meletus</item>
+        <item>Angin Puting Beliung</item>
+        <item>Tsunami</item>
+        <item>Kebakaran Hutan</item>
+    </string-array>
+
+    <string name="bencana_buatan_prompt">Tipe Bencana Buatan</string>
+    <string-array name="bencana_buatan_arrays">
+        <item>Banjir</item>
+        <item>Bom Meledak</item>
+        <item>Angin Puting Beliung</item>
+        <item>Tsunami</item>
+    </string-array>
 </resources>
