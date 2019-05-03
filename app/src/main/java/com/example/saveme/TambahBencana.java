@@ -16,7 +16,7 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_bencana);
-
+        int i;
     }
 
     public void addItemsOnSpJenisBencana() {
