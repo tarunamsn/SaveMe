@@ -21,18 +21,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started.");
         RecyclerView mListView = (RecyclerView) findViewById(R.id.reListBencana);
-        listBencana a = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana a = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
 
         ArrayList<listBencana> listBencanaArrayList = new ArrayList<>();
-        listBencanaArrayList.add(a);
-        listBencanaArrayList.add(b);
-        listBencanaArrayList.add(c);
-        listBencanaArrayList.add(d);
-        listBencanaAdapter adapter = new listBencanaAdapter(this, R.layout.layout_list, listBencanaArrayList);
-        mListView.setAdapter(adapter);
+//        listBencanaArrayList.add(a);
+//        listBencanaArrayList.add(b);
+//        listBencanaArrayList.add(c);
+//        listBencanaArrayList.add(d);
+//        listBencanaAdapter adapter = new listBencanaAdapter(this, R.layout.layout_list, listBencanaArrayList);
+//        mListView.setAdapter(adapter);
 
         fabTambah = findViewById(R.id.fabTambah);
         fabTambah.setOnClickListener(this);

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TambahBencana extends AppCompatActivity {
     Button btTambahBencana;
-    Spinner spJenisBencana, spBencana;
+    Spinner spBencana;
     EditText etJudul, etLokasi, etDeskripsi;
 
     @Override
@@ -25,10 +25,9 @@ public class TambahBencana extends AppCompatActivity {
         etJudul = findViewById(R.id.etJudul);
         etLokasi = findViewById(R.id.etLokasi);
         etDeskripsi = findViewById(R.id.etDeskripsi);
-        spBencana = findViewById(R.id.spBencana);
+        spBencana = (Spinner) findViewById(R.id.spBencana);
+
         btTambahBencana = (Button) findViewById(R.id.btTambahBencana);
-
-
         btTambahBencana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,10 +38,6 @@ public class TambahBencana extends AppCompatActivity {
         });
     }
 }
-
-
-
-
 //    public void addItemsOnSpBencana() {
 //        Spinner spBencana = findViewById(R.id.spBencana);
 //        if (spJenisBencana.getSelectedItem() == "Alam") {

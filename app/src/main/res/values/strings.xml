@@ -2,13 +2,9 @@
     <string name="app_name">Save Me !</string>
 
     <string name="jenis_prompt">Jenis Bencana</string>
-    <string-array name="jenis_arrays">
-        <item>Alam</item>
-        <item>Buatan</item>
-    </string-array>
 
-    <string name="bencana_alam_prompt">Tipe Bencana Alam</string>
-    <string-array name="bencana_alam_arrays">
+    <string name="bencana_prompt">Tipe Bencana Alam</string>
+    <string-array name="bencana_arrays">
         <item>Gempa Bumi</item>
         <item>Tanah Longsor</item>
         <item>Gunung Meletus</item>
