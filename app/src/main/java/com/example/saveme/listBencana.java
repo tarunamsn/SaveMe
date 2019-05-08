@@ -4,10 +4,10 @@ public class listBencana {
     public String judul;
     public String lokasi;
     public String waktu;
-    public Byte gambar;
+    public int gambar;
     public String id;
 
-    public listBencana(String judul, String lokasi, String waktu, Byte gambar, String id) {
+    public listBencana(String judul, String lokasi, String waktu, int gambar, String id) {
         this.judul = judul;
         this.lokasi = lokasi;
         this.waktu = waktu;
@@ -39,11 +39,11 @@ public class listBencana {
         this.waktu = waktu;
     }
 
-    public Byte getGambar() {
+    public int getGambar() {
         return gambar;
     }
 
-    public void setGambar(Byte gambar) {
+    public void setGambar(int gambar) {
         this.gambar = gambar;
     }
 

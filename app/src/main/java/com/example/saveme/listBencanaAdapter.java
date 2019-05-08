@@ -5,12 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,28 +33,30 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
     @Override
     public listBencanaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.layout_list_konsul, parent, false);
+        View view = layoutInflater.inflate(R.layout.layout_list, parent, false);
         return new listBencanaViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(listBencanaViewHolder holder, int position) {
-/*        final ListKonsultasi model = dataListKonsul.get(position);
+        final listBencana model = dataList.get(position);
         holder.txtJudul.setText(model.getJudul());
-        holder.txtJawaboleh.setText(model.getJawaboleh());
-        holder.txtIsi.setText(model.getIsi());
-        holder.seseorangImg.setImageDrawable(context.getResources().getDrawable(model.getSeseorangImg()));
+        holder.txtLokasi.setText(model.getLokasi());
+        holder.txtWaktu.setText(model.getWaktu());
+        holder.txtId.setText(model.getId());
+        holder.ImageView2.setImageDrawable(context.getResources().getDrawable(model.getGambar()));
         holder.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, jawabanKonsul.class);
-                intent.putExtra("seseorang", model.getSeseorangImg());
+                Intent intent = new Intent(context, ProfilBencana.class);
+                intent.putExtra("gambar", model.getGambar());
                 intent.putExtra("judul", model.getJudul());
-                intent.putExtra("jawab", model.getJawaboleh());
-                intent.putExtra("isi", model.getIsi());
+                intent.putExtra("lokasi", model.getLokasi());
+                intent.putExtra("waktu", model.getWaktu());
+                intent.putExtra("id", model.getId());
                 context.startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
@@ -61,16 +66,17 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
     }
 
     public class listBencanaViewHolder extends RecyclerView.ViewHolder{
-        TextView txtJudul, txtJawaboleh, txtIsi;
-        ImageView seseorangImg;
+        TextView txtJudul, txtLokasi, txtWaktu, txtId;
+        ImageView ImageView2;
         ConstraintLayout constraint;
 
         public listBencanaViewHolder(View itemView) {
             super(itemView);
-            txtJudul = (TextView) itemView.findViewById(R.id.txtJudul);
-            txtJawaboleh = (TextView) itemView.findViewById(R.id.txtJawaboleh);
-            txtIsi = (TextView) itemView.findViewById(R.id.txtIsi);
-            seseorangImg = (ImageView) itemView.findViewById(R.id.seseorangImg);
+            txtJudul = (TextView) itemView.findViewById(R.id.txtNama);
+            txtLokasi = (TextView) itemView.findViewById(R.id.txtAlamat);
+            txtWaktu = (TextView) itemView.findViewById(R.id.txtNomertelpon);
+            txtId = (TextView) itemView.findViewById(R.id.txtNomertelpon);
+            ImageView2 = (ImageView) itemView.findViewById(R.id.imageView2);
             constraint = (ConstraintLayout) itemView.findViewById(R.id.constraint);
 
         }
