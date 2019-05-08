@@ -15,13 +15,9 @@
         <item>Angin Puting Beliung</item>
         <item>Tsunami</item>
         <item>Kebakaran Hutan</item>
+        <item>Banjir</item>
+        <item>Teror Bom</item>
+        <item>Lainnya</item>
     </string-array>
 
-    <string name="bencana_buatan_prompt">Tipe Bencana Buatan</string>
-    <string-array name="bencana_buatan_arrays">
-        <item>Banjir</item>
-        <item>Bom Meledak</item>
-        <item>Angin Puting Beliung</item>
-        <item>Tsunami</item>
-    </string-array>
 </resources>

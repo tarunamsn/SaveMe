@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
-                                String password="";
+                                String password="asdfghjkl";
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d("Success", document.getId() + " => " + document.getData());
                                     password = document.getData().get("password").toString();
