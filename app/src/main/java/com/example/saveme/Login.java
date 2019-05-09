@@ -56,18 +56,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             db = FirebaseFirestore.getInstance();
             db.collection("user")
                     .whereEqualTo("username",etUsername.getText().toString())
+//                    .whereEqualTo("password",etPassword.getText().toString())
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
-                                String password="asdfghjkl";
+                                String password="Un1qv3";
+                                String nama = "Taruna";
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d("Success", document.getId() + " => " + document.getData());
+                                    nama = document.getData().get("name").toString();
                                     password = document.getData().get("password").toString();
                                 }
                                 if (etPassword.getText().toString().equals(password)){
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.putExtra("nama",nama);
                                     startActivity(intent);
                                 }
                             } else {

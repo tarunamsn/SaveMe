@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">Save Me !</string>
-
-    <string name="jenis_prompt">Jenis Bencana</string>
-
-    <string name="bencana_prompt">Tipe Bencana Alam</string>
-    <string-array name="bencana_arrays">
+    <string name="bencana_alam_prompt">Tipe Bencana Alam</string>
+    <string-array name="bencana_alam_arrays">
         <item>Gempa Bumi</item>
         <item>Tanah Longsor</item>
         <item>Gunung Meletus</item>
@@ -12,7 +9,9 @@
         <item>Tsunami</item>
         <item>Kebakaran Hutan</item>
         <item>Banjir</item>
-        <item>Teror Bom</item>
+        <item>Bom Meledak</item>
+        <item>Angin Puting Beliung</item>
+        <item>Tsunami</item>
         <item>Lainnya</item>
     </string-array>
 
