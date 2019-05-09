@@ -1,6 +1,9 @@
 package com.example.saveme;
 
-public class listBencana {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class listBencana implements Parcelable {
     public String judul;
     public String bencana;
     public String lokasi;
@@ -74,6 +77,43 @@ public class listBencana {
     public void setGambar(String gambar) {
         this.gambar = gambar;
     }
+
+    protected listBencana(Parcel in) {
+        judul = in.readString();
+        bencana = in.readString();
+        lokasi = in.readString();
+        waktu = in.readString();
+        deskripsi = in.readString();
+        gambar = in.readString();
+        nama = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(judul);
+        dest.writeString(bencana);
+        dest.writeString(lokasi);
+        dest.writeString(waktu);
+        dest.writeString(deskripsi);
+        dest.writeString(gambar);
+        dest.writeString(nama);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<listBencana> CREATOR = new Parcelable.Creator<listBencana>() {
+        @Override
+        public listBencana createFromParcel(Parcel in) {
+            return new listBencana(in);
+        }
+
+        @Override
+        public listBencana[] newArray(int size) {
+            return new listBencana[size];
+        }
+    };
 }
-
-

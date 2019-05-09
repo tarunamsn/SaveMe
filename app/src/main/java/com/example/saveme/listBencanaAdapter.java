@@ -49,12 +49,13 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
         holder.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, jawabanKonsul.class);
+                Intent intent = new Intent(context, ProfilBencana.class);
+                intent.putExtra("objek",model);
 //                intent.putExtra("seseorang", model.getSeseorangImg());
 //                intent.putExtra("judul", model.getJudul());
 //                intent.putExtra("jawab", model.getJawaboleh());
 //                intent.putExtra("isi", model.getIsi());
-//                context.startActivity(intent);
+                context.startActivity(intent);
             }
         });
     }
