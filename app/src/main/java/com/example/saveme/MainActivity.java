@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.widget.ArrayAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,26 +14,27 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     FloatingActionButton fabTambah;
-    private static final String TAG = "MainActivity";
+    RecyclerView.Adapter adapter;
+    RecyclerView mListView;
+    ArrayList<listBencana> listBencanaArrayList;
+    /*private static final String TAG = "MainActivity";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: Started.");
-        RecyclerView mListView = (RecyclerView) findViewById(R.id.reListBencana);
-//        listBencana a = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+        /*Log.d(TAG, "onCreate: Started.");*/
+        mListView = (RecyclerView) findViewById(R.id.reListBencana);
+        mListView.setHasFixedSize(true);
+        mListView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<listBencana> listBencanaArrayList = new ArrayList<>();
-//        listBencanaArrayList.add(a);
-//        listBencanaArrayList.add(b);
-//        listBencanaArrayList.add(c);
-//        listBencanaArrayList.add(d);
-//        listBencanaAdapter adapter = new listBencanaAdapter(this, R.layout.layout_list, listBencanaArrayList);
-//        mListView.setAdapter(adapter);
+        listBencanaArrayList = new ArrayList<>();
+        listBencanaArrayList.add(new listBencana("banjir", "dinoyo", "10:00", R.drawable.common_full_open_on_phone, "1"));
+        listBencanaArrayList.add(new listBencana("banjir", "dinoyo", "10:00", R.drawable.common_full_open_on_phone, "1"));
+        listBencanaArrayList.add(new listBencana("banjir", "dinoyo", "10:00", R.drawable.common_full_open_on_phone, "1"));
+        listBencanaArrayList.add(new listBencana("banjir", "dinoyo", "10:00", R.drawable.common_full_open_on_phone, "1"));
+        adapter = new listBencanaAdapter(listBencanaArrayList, this);
+        mListView.setAdapter(adapter);
 
         fabTambah = findViewById(R.id.fabTambah);
         fabTambah.setOnClickListener(this);

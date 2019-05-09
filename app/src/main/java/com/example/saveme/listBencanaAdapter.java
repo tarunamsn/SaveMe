@@ -48,13 +48,13 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
         holder.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, ProfilBencana.class);
-//                intent.putExtra("gambar", model.getGambar());
-//                intent.putExtra("judul", model.getJudul());
-//                intent.putExtra("lokasi", model.getLokasi());
-//                intent.putExtra("waktu", model.getWaktu());
-//                intent.putExtra("id", model.getId());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, ProfilBencana.class);
+                intent.putExtra("gambar", model.getGambar());
+                intent.putExtra("judul", model.getJudul());
+                intent.putExtra("lokasi", model.getLokasi());
+                intent.putExtra("waktu", model.getWaktu());
+                intent.putExtra("id", model.getId());
+                context.startActivity(intent);
             }
         });
     }
@@ -72,10 +72,10 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
 
         public listBencanaViewHolder(View itemView) {
             super(itemView);
-//            txtJudul = (TextView) itemView.findViewById(R.id.txtNama);
-//            txtLokasi = (TextView) itemView.findViewById(R.id.txtAlamat);
-//            txtWaktu = (TextView) itemView.findViewById(R.id.txtNomertelpon);
-//            txtId = (TextView) itemView.findViewById(R.id.txtNomertelpon);
+            txtJudul = (TextView) itemView.findViewById(R.id.txtJudul);
+            txtLokasi = (TextView) itemView.findViewById(R.id.txtLokasi);
+            txtWaktu = (TextView) itemView.findViewById(R.id.txtWaktu);
+            txtId = (TextView) itemView.findViewById(R.id.txId);
             ImageView2 = (ImageView) itemView.findViewById(R.id.imageView2);
             constraint = (ConstraintLayout) itemView.findViewById(R.id.constraint);
 
