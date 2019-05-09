@@ -31,16 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started.");
         RecyclerView mListView = (RecyclerView) findViewById(R.id.reListBencana);
-//        listBencana a = new listBencana("banjir", "dinoyo", "10:00", "", "","","");
-//        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
 
         listBencanaArrayList = new ArrayList<>();
-//        listBencanaArrayList.add(a);
-//        listBencanaArrayList.add(b);
-//        listBencanaArrayList.add(c);
-//        listBencanaArrayList.add(d);
+
         adapter = new listBencanaAdapter(listBencanaArrayList,this);
         mListView.setAdapter(adapter);
         mListView.setLayoutManager(new LinearLayoutManager(this));
@@ -87,3 +80,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 }
+
+
+//        listBencana a = new listBencana("banjir", "dinoyo", "10:00", "", "","","");
+//        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+
+//        listBencanaArrayList.add(a);
+//        listBencanaArrayList.add(b);
+//        listBencanaArrayList.add(c);
+//        listBencanaArrayList.add(d);

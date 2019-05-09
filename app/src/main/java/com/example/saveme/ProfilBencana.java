@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class ProfilBencana extends AppCompatActivity {
     ImageView ImageView;
-    TextView judul, lokasi, waktu, id;
+    TextView judul, lokasi, waktu, id, deskripsi, bencana;
     int imageView3;
 
     @Override
@@ -20,13 +20,17 @@ public class ProfilBencana extends AppCompatActivity {
         Intent intent = getIntent();
         listBencana listBencana = intent.getParcelableExtra("objek");
         judul = findViewById(R.id.txJudul);
+        bencana = findViewById(R.id.txBencana);
         lokasi = findViewById(R.id.txLokasi);
         waktu = findViewById(R.id.txtWaktu);
         id = findViewById(R.id.txNama);
+        deskripsi = findViewById(R.id.txDeskripsi);
 
+        bencana.setText(listBencana.getBencana());
         judul.setText(listBencana.getJudul());
         lokasi.setText(listBencana.getLokasi());
 //        waktu.setText(listBencana.getWaktu());
         id.setText(listBencana.getNama());
+        deskripsi.setText(listBencana.getDeskripsi());
     }
 }

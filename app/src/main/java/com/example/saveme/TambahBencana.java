@@ -2,11 +2,11 @@ package com.example.saveme;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,11 +23,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+//import com.google.firebase.storage.FirebaseStorage;
+//import com.google.firebase.storage.StorageReference;
+//import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +35,7 @@ import java.util.Map;
 
 public class TambahBencana extends AppCompatActivity implements View.OnClickListener {
     Spinner spJenisBencana, spBencana;
-    private StorageReference mStorageRef;
+//    private StorageReference mStorageRef;
     ImageView imageView;
     Button btTambahBencana;
     EditText etJudul, etDeskripsi, etLokasi;
@@ -60,44 +59,9 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
         nama = intent.getStringExtra("nama");
         imageView = findViewById(R.id.imageView5);
         imageView.setOnClickListener(this);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+//        mStorageRef = FirebaseStorage.getInstance().getReference();
     }
 
-//    public void addItemsOnSpJenisBencana() {
-//        spJenisBencana = findViewById(R.id.spJenisBencana);
-//        List<String> list = new ArrayList<String>();
-//        list.add("Alam");
-//        list.add("Buatan");
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, list);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spJenisBencana.setAdapter(dataAdapter);
-//    }
-
-//    public void addItemsOnSpBencana() {
-//        spBencana = findViewById(R.id.spBencana);
-//        List<String> list = new ArrayList<String>();
-//        if (spBencana.getSelectedItem() == "Alam") {
-//            list.add("Gempa Bumi");
-//            list.add("Tanah Longsor");
-//            list.add("Gunung Meletus");
-//            list.add("Angin Puting Beliung");
-//        } else if (spBencana.getSelectedItem() == "Buatan") {
-//            list.add("Alam");
-//            list.add("Buatan");
-//        }
-//
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, list);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spBencana.setAdapter(dataAdapter);
-//    }
-
-//    // get the selected dropdown list value
-//    public void addListenerOnButton() {
-//
-//        spinner1 = (Spinner) findViewById(R.id.spinner1);
-//        spinner2 = (Spinner) findViewById(R.id.spinner2);
 //    @Override
     String imgUrl;
     public void onClick(View v) {
@@ -130,32 +94,32 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
     }
 
     void uploadImg(){
-        Uri file = imageuri;
-        final StorageReference ref = mStorageRef.child("a");
-        UploadTask uploadTask  = ref.putFile(file);
-        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw task.getException();
-                }
-
+//        Uri file = imageuri;
+//        final StorageReference ref = mStorageRef.child("a");
+//        UploadTask uploadTask  = ref.putFile(file);
+//        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+//            @Override
+//            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                if (!task.isSuccessful()) {
+//                    throw task.getException();
+//                }
+//
                 // Continue with the task to get the download URL
 //                etDeskripsi.setText(ref.getDownloadUrl().toString());
-                return ref.getDownloadUrl();
-            }
-        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isSuccessful()) {
-                    Uri downloadUri = task.getResult();
-                    uploadData(downloadUri.toString());
-                } else {
+//                return ref.getDownloadUrl();
+//            }
+//        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Uri> task) {
+//                if (task.isSuccessful()) {
+//                    Uri downloadUri = task.getResult();
+//                    uploadData(downloadUri.toString());
+//                } else {
                     // Handle failures
                     // ...
-                }
-            }
-        });
+//                }
+//            }
+//        });
     }
 
     void uploadData(String url){

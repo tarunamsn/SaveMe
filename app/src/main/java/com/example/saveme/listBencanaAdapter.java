@@ -17,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
         holder.txtJudul.setText(model.getJudul());
         holder.txtJawaboleh.setText(model.getLokasi());
         holder.txtIsi.setText(model.getWaktu());
-        Picasso.get().load(model.getGambar()).into(holder.seseorangImg);
+//        Picasso.get().load(model.getGambar()).into(holder.seseorangImg);
         holder.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
