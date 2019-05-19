@@ -19,7 +19,7 @@
         android:id="@+id/txJudul"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Judul"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,15 +49,12 @@
 
     <TextView
         android:id="@+id/txDeskripsi"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:text="Deskripsi"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txLokasi" />
 
@@ -94,10 +91,10 @@
         android:id="@+id/imageView6"
         android:layout_width="200dp"
         android:layout_height="31dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txDeskripsi"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
         app:srcCompat="?attr/colorPrimary" />
 
     <ImageView
@@ -109,4 +106,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@null"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txDeskripsi" />
+
 </android.support.constraint.ConstraintLayout>

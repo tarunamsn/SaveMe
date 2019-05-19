@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,7 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
             public void onClick(View view) {
                 Intent intent = new Intent(context, ProfilBencana.class);
                 intent.putExtra("objek",model);
-//                intent.putExtra("seseorang", model.getSeseorangImg());
-//                intent.putExtra("judul", model.getJudul());
-//                intent.putExtra("jawab", model.getJawaboleh());
-//                intent.putExtra("isi", model.getIsi());
+                Log.d("waktu",model.getWaktu());
                 context.startActivity(intent);
             }
         });
@@ -55,7 +53,6 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
 
     @Override
     public int getItemCount() {
-//        return  dataList.size();
         return (dataList != null) ? dataList.size() : 0;
     }
 
@@ -73,12 +70,5 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
             constraint = (ConstraintLayout) itemView.findViewById(R.id.constraint);
 
         }
-/*
-        @Override
-        public void onClick(View view) {
-*//*            Bundle bundle = new Bundle();
-            bundle.putString("nama", txtNama.getText().toString());*//*
-            _context.startActivity(new Intent(_context, CvPengacara.class));
-        }*/
     }
 }

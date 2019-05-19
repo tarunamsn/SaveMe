@@ -158,9 +158,9 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    void uploadData(String url){
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        Date date = new Date();
+    void uploadData(final String url){
+        final DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm");
+        final Date date = new Date();
         Map<String, Object> user = new HashMap<>();
         user.put("judul", etJudul.getText().toString());
         user.put("deskripsi", etDeskripsi.getText().toString());
@@ -178,6 +178,12 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d("Success : ", "DocumentSnapshot added with ID: " + documentReference.getId());
                         Toast.makeText(TambahBencana.this,"Success", Toast.LENGTH_LONG).show();
+                        Intent intent = getIntent();
+                        Bencana newBencana = new Bencana(etJudul.getText().toString(),spBencana.getSelectedItem().toString(),
+                                etLokasi.getText().toString(),dateFormat.format(date),etDeskripsi.getText().toString(),url,nama);
+                        intent.putExtra("objek",newBencana);
+                        setResult(RESULT_OK,intent);
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
