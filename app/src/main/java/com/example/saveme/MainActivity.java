@@ -6,7 +6,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.widget.ArrayAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -24,24 +23,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     String nama;
     listBencanaAdapter adapter;
-    ArrayList<listBencana> listBencanaArrayList;
+    ArrayList<Bencana> listBencanaArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started.");
         RecyclerView mListView = (RecyclerView) findViewById(R.id.reListBencana);
-//        listBencana a = new listBencana("banjir", "dinoyo", "10:00", "", "","","");
-//        listBencana b = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana c = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
-//        listBencana d = new listBencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        Bencana a = new Bencana("banjir", "dinoyo", "10:00", "", "","","");
+//        Bencana b = new Bencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        Bencana c = new Bencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
+//        Bencana d = new Bencana("banjir", "dinoyo", "10:00", R.drawable.btn_plus, "");
 
-        listBencanaArrayList = new ArrayList<>();
-//        listBencanaArrayList.add(a);
-//        listBencanaArrayList.add(b);
-//        listBencanaArrayList.add(c);
-//        listBencanaArrayList.add(d);
-        adapter = new listBencanaAdapter(listBencanaArrayList,this);
+        listBencanaArray = new ArrayList<>();
+//        listBencanaArray.add(a);
+//        listBencanaArray.add(b);
+//        listBencanaArray.add(c);
+//        listBencanaArray.add(d);
+        adapter = new listBencanaAdapter(listBencanaArray,this);
         mListView.setAdapter(adapter);
         mListView.setLayoutManager(new LinearLayoutManager(this));
         getData();
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(i);
     }
     FirebaseFirestore db;
-//    ArrayList<listBencana> listBencanaArrayList;
+//    ArrayList<Bencana> listBencanaArray;
     void getData(){
         db = FirebaseFirestore.getInstance();
         db.collection("laporan_bencana")
@@ -75,9 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 String deskripsi = document.getData().get("lokasi").toString();
                                 String waktu =document.getData().get("waktu").toString();
                                 String gambar=document.getData().get("imgUrl").toString();
-                                String nama=document.getData().get("nama").toString();
-                                listBencana a = new listBencana(judul, bencana, lokasi, deskripsi, waktu, gambar, nama);
-                                listBencanaArrayList.add(a);
+//                                String nama=document.getData().get("nama").toString();
+                                Bencana a = new Bencana(judul, bencana, lokasi, deskripsi, waktu, gambar, nama);
+                                listBencanaArray.add(a);
                                 adapter.notifyDataSetChanged();
                             }
                         } else {

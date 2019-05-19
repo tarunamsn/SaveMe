@@ -131,7 +131,7 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
 
     void uploadImg(){
         Uri file = imageuri;
-        final StorageReference ref = mStorageRef.child("a");
+        final StorageReference ref = mStorageRef.child(file.getLastPathSegment());
         UploadTask uploadTask  = ref.putFile(file);
         Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
             @Override

@@ -1,19 +1,12 @@
 package com.example.saveme;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,11 +16,11 @@ import java.util.ArrayList;
 
 public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.listBencanaViewHolder>{
 
-    private ArrayList<listBencana> dataList;
+    private ArrayList<Bencana> dataList;
     Context context;
 
 
-    public listBencanaAdapter(ArrayList<listBencana> dataList, Context context) {
+    public listBencanaAdapter(ArrayList<Bencana> dataList, Context context) {
         this.dataList = dataList;
         this.context = context;
     }
@@ -41,11 +34,11 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
 
     @Override
     public void onBindViewHolder(listBencanaViewHolder holder, int position) {
-        final listBencana model = dataList.get(position);
+        final Bencana model = dataList.get(position);
         holder.txtJudul.setText(model.getJudul());
-        holder.txtJawaboleh.setText(model.getLokasi());
-        holder.txtIsi.setText(model.getWaktu());
-        Picasso.get().load(model.getGambar()).into(holder.seseorangImg);
+        holder.txtJenis.setText(model.getBencana());
+        holder.txtLokasi.setText(model.getLokasi());
+        Picasso.get().load(model.getGambar()).into(holder.imgBencana);
         holder.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,16 +60,16 @@ public class listBencanaAdapter extends RecyclerView.Adapter<listBencanaAdapter.
     }
 
     public class listBencanaViewHolder extends RecyclerView.ViewHolder{
-        TextView txtJudul, txtJawaboleh, txtIsi;
-        ImageView seseorangImg;
+        TextView txtJudul, txtJenis, txtLokasi;
+        ImageView imgBencana;
         ConstraintLayout constraint;
 
         public listBencanaViewHolder(View itemView) {
             super(itemView);
             txtJudul = (TextView) itemView.findViewById(R.id.txtJudul);
-            txtJawaboleh = (TextView) itemView.findViewById(R.id.txtLokasi);
-            txtIsi = (TextView) itemView.findViewById(R.id.txtWaktu);
-            seseorangImg = (ImageView) itemView.findViewById(R.id.imageView2);
+            txtJenis = (TextView) itemView.findViewById(R.id.txtJenis);
+            txtLokasi = itemView.findViewById(R.id.txtLokasi);
+            imgBencana = (ImageView) itemView.findViewById(R.id.imageView2);
             constraint = (ConstraintLayout) itemView.findViewById(R.id.constraint);
 
         }

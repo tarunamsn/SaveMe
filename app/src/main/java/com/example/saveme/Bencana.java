@@ -3,7 +3,7 @@ package com.example.saveme;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class listBencana implements Parcelable {
+public class Bencana implements Parcelable {
     public String judul;
     public String bencana;
     public String lokasi;
@@ -12,7 +12,7 @@ public class listBencana implements Parcelable {
     public String gambar;
     public String nama;
 
-    public listBencana(String judul, String bencana, String lokasi, String waktu, String deskripsi, String gambar, String nama) {
+    public Bencana(String judul, String bencana, String lokasi, String waktu, String deskripsi, String gambar, String nama) {
         this.judul = judul;
         this.lokasi = lokasi;
         this.waktu = waktu;
@@ -78,7 +78,7 @@ public class listBencana implements Parcelable {
         this.gambar = gambar;
     }
 
-    protected listBencana(Parcel in) {
+    protected Bencana(Parcel in) {
         judul = in.readString();
         bencana = in.readString();
         lokasi = in.readString();
@@ -105,15 +105,15 @@ public class listBencana implements Parcelable {
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<listBencana> CREATOR = new Parcelable.Creator<listBencana>() {
+    public static final Parcelable.Creator<Bencana> CREATOR = new Parcelable.Creator<Bencana>() {
         @Override
-        public listBencana createFromParcel(Parcel in) {
-            return new listBencana(in);
+        public Bencana createFromParcel(Parcel in) {
+            return new Bencana(in);
         }
 
         @Override
-        public listBencana[] newArray(int size) {
-            return new listBencana[size];
+        public Bencana[] newArray(int size) {
+            return new Bencana[size];
         }
     };
 }
