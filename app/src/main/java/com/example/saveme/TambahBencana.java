@@ -48,58 +48,25 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_bencana);
+
         btTambahBencana = findViewById(R.id.btTambahBencana);
         btTambahBencana.setOnClickListener(this);
+
         spBencana=findViewById(R.id.spJenisBencana);
         gambar= findViewById(R.id.textView12);
-//        gambar.setOnClickListener(this);
         etJudul = findViewById(R.id.etJudul);
         etDeskripsi = findViewById(R.id.etDeskripsi);
         etLokasi = findViewById(R.id.etLokasi);
+
         Intent intent = getIntent();
         nama = intent.getStringExtra("nama");
+
         imageView = findViewById(R.id.imageView5);
         imageView.setOnClickListener(this);
+
         mStorageRef = FirebaseStorage.getInstance().getReference();
     }
 
-//    public void addItemsOnSpJenisBencana() {
-//        spJenisBencana = findViewById(R.id.spJenisBencana);
-//        List<String> list = new ArrayList<String>();
-//        list.add("Alam");
-//        list.add("Buatan");
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, list);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spJenisBencana.setAdapter(dataAdapter);
-//    }
-
-//    public void addItemsOnSpBencana() {
-//        spBencana = findViewById(R.id.spBencana);
-//        List<String> list = new ArrayList<String>();
-//        if (spBencana.getSelectedItem() == "Alam") {
-//            list.add("Gempa Bumi");
-//            list.add("Tanah Longsor");
-//            list.add("Gunung Meletus");
-//            list.add("Angin Puting Beliung");
-//        } else if (spBencana.getSelectedItem() == "Buatan") {
-//            list.add("Alam");
-//            list.add("Buatan");
-//        }
-//
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, list);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spBencana.setAdapter(dataAdapter);
-//    }
-
-//    // get the selected dropdown list value
-//    public void addListenerOnButton() {
-//
-//        spinner1 = (Spinner) findViewById(R.id.spinner1);
-//        spinner2 = (Spinner) findViewById(R.id.spinner2);
-//    @Override
-    String imgUrl;
     public void onClick(View v) {
         if (v==btTambahBencana){
             uploadImg();
@@ -140,8 +107,6 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
                     throw task.getException();
                 }
 
-                // Continue with the task to get the download URL
-//                etDeskripsi.setText(ref.getDownloadUrl().toString());
                 return ref.getDownloadUrl();
             }
         }).addOnCompleteListener(new OnCompleteListener<Uri>() {
@@ -151,8 +116,7 @@ public class TambahBencana extends AppCompatActivity implements View.OnClickList
                     Uri downloadUri = task.getResult();
                     uploadData(downloadUri.toString());
                 } else {
-                    // Handle failures
-                    // ...
+
                 }
             }
         });

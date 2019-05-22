@@ -1,9 +1,13 @@
 package com.example.saveme;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,17 +45,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fabTambah = findViewById(R.id.fabTambah);
         fabTambah.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        nama = intent.getStringExtra("nama");
+        Log.d("nama",nama);
     }
+
     final int TAMBAH_BENCANA =1;
+
     @Override
     public void onClick(View v) {
         Intent i = new Intent(this, TambahBencana.class);
         i.putExtra("nama",nama);
+        Log.d("nama",nama);
         startActivityForResult(i,TAMBAH_BENCANA);
     }
     FirebaseFirestore db;
 //    ArrayList<Bencana> listBencanaArray;
     void getData(){
+
+        final ProgressDialog progressDialog;
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading ...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         db = FirebaseFirestore.getInstance();
         db.collection("laporan_bencana")
                 .get()
@@ -60,17 +78,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Log.d("Success", document.getId() + " => " + document.getData());
                                 String judul= document.getData().get("judul").toString();
                                 String bencana= document.getData().get("bencana").toString();
                                 String lokasi = document.getData().get("lokasi").toString();
                                 String deskripsi = document.getData().get("deskripsi").toString();
                                 String waktu =document.getData().get("waktu").toString();
                                 String gambar=document.getData().get("imgUrl").toString();
+                                String nama = document.getData().get("nama").toString();
                                 Bencana a = new Bencana(judul, bencana, lokasi, waktu, deskripsi, gambar, nama);
                                 listBencanaArray.add(a);
                                 adapter.notifyDataSetChanged();
                             }
+                            progressDialog.dismiss();
                         } else {
                             Log.w("Failure : ", "Error getting documents.", task.getException());
                         }
@@ -88,5 +107,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 adapter.notifyDataSetChanged();
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Do you want to Logout ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SharedPreferences.Editor editor = getSharedPreferences("com.example.android.saveme",MODE_PRIVATE).edit();
+                        editor.clear();
+                        editor.commit();
+
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

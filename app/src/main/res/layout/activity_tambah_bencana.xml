@@ -136,7 +136,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Lokasi"
+            android:hint="Judul"
             android:inputType="textPersonName"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
